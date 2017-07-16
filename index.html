@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="list">
+            <a href="#" class="link">First link</a>
+            <a href="#" class="link">Second lala link</a>
+            <a href="#" class="link">Third link</a>
+        </div>
+    <script>
+        const people = [
+            { 
+                "name": "Dale",
+                "last": "Day",
+                "year": 1996
+            },
+            { 
+                "name": "Nancy",
+                "last": "Black",
+                "year": 1947
+            },
+            { 
+                "name": "Mina",
+                "last": "Stone",
+                "year": 1929
+            },
+            { 
+                "name": "Ralph",
+                "last": "Hall",
+                "year": 1961
+            },
+            { 
+                "name": "Mittie",
+                "last": "Day",
+                "year": 1984
+            },
+        ]
+
+        // return inventors born after 1950
+        const inventors = people.filter(peop => {
+            if (peop.year > 1950) {
+                return true
+            }
+        })
+
+        console.table(inventors)
+
+        // return inventors full names
+        const inventors2 = people.map(peeeep => {
+            return {
+                "full name": peeeep.name + ' ' + peeeep.last
+            }
+        })
+
+        console.table(inventors2)
+
+        // sort by birth year
+        const birthYear = people.sort((a, b) => b.year < a.year ? 1 : -1)
+
+        console.table(birthYear)
+
+        // use reduce to accummumlate
+
+        const totalYears = people.reduce((total, peepoo) => {
+            return total + peepoo.year    
+        }, 0)
+
+        console.log(totalYears);
+
+        // just messing
+        const list = document.querySelector('.list');
+        const links = Array
+            .from(list.querySelectorAll('.link'))
+            .map(joof => joof.textContent)
+            .filter(huju => !huju.includes('lala'));
+
+        console.table(links);
+
+        // sort by last name
+        const sortByLastName = people.sort((a, b) => {
+            return (a.last < b.last) ? -1 : 1
+        })
+
+        console.table(sortByLastName);
+
+        const transportData = ['steep', 'steep', 'steep', 'grow', 'grow', 'essential', 'essential', 'essential', 'essential'];
+
+        const getInstances = transportData.reduce((objd, itemy) => {
+            if (!objd[itemy]) {
+                objd[itemy] = 0;
+            }
+            objd[itemy]++;
+            return objd;
+        }, {})
+
+        console.log(getInstances);
+
+    </script>
+    </body>
+
+
+
+
+
+
+</html>
